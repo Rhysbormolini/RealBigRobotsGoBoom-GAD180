@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum AttackType {  heavy = 0, light = 1, kick = 2 };
+public enum AttackType {  heavy = 0, light = 1, kick = 2, none = 3 };
 public class FightingCombos : MonoBehaviour
 {
     // these are what the player will press to do these attacks
@@ -168,7 +168,7 @@ public class ComboInput
 {
     // hold info of what to press to initiate that combo attack
     public AttackType type;
-    // Movement input for my precise combos
+    public Vector2 movement;
 
     public ComboInput(AttackType t)
     {
@@ -177,7 +177,16 @@ public class ComboInput
 
     public bool isSameAs(ComboInput test)
     {
-        return (type == test.type); //Add && movement == test.movement
+        return (type == AttackType.none) ? (validMovement(test.movement)) : (type == test.type);
+    }
+    bool validMovement(Vector2 move)
+    {
+        bool valid = true;
+        if (movement.x != 0 && movement.x != move.x) //check x if movement x is not 0 and if they are not the same then it is not valid
+            valid = false;
+        if (movement.y != 0 && movement.y != move.y) // do the same for y
+            valid = false;
+        return valid;
     }
 }
 
