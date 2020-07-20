@@ -7,8 +7,9 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
 
-    public Text timeCounter;
-    public bool gamePlaying { get; private set; }
+    public GameObject hudContainer, roundOverCanvas;
+    
+    public bool GamePlaying { get; private set; }
 
     private void Awake()
     {
@@ -17,18 +18,32 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        gamePlaying = false;
+        GamePlaying = false;
 
         BeginGame();
     }
     public void BeginGame()
     {
-        gamePlaying = true;
-       
+        GamePlaying = true;
+        RoundCountdownController.instance.StartRound();
     }
 
     private void Update()
     {
-     
+        if (GamePlaying)
+        {
+            
+        }
     }
+   /* private void EndRound()
+    {
+        gamePlaying = false;
+        Invoke("ShowRoundOverCanvas", 1.25f);
+    }
+    private void ShowRoundOverCanvas()
+    {
+        roundOverCanvas.SetActive(true);
+
+    }
+  */
 }
