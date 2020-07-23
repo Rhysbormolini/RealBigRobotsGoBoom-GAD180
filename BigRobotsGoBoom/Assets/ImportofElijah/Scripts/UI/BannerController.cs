@@ -17,17 +17,17 @@ public class BannerController : MonoBehaviour {
 
 	public void showRoundFight(){
 		animating = true;
-		animator.SetTrigger ("SHOW_ROUND_FIGHT");
+		animator.SetTrigger ("Show_Round_Fight");
 	}
 
 	public void showYouWin(){
 		animating = true;
-		animator.SetTrigger ("SHOW_YOU_WIN");
+		animator.SetTrigger ("Show_You_Win");
 	}
 
 	public void showYouLose(){
 		animating = true;
-		animator.SetTrigger ("SHOW_YOU_LOSE");
+		animator.SetTrigger ("Show_You_Lose");
 	}
 
 	public void playVoice(AudioClip voice){

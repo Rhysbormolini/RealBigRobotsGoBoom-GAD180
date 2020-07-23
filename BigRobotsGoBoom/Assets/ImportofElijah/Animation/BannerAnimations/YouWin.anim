@@ -54,7 +54,8 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: d2448261792003a428cb70e058be09e1, type: 3}
+      value: {fileID: 300748151990519687, guid: 60ed7076cc01bd04b81d2772a255e166,
+        type: 3}
     attribute: m_Sprite
     path: BannerImage
     classID: 114
@@ -81,7 +82,7 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: d2448261792003a428cb70e058be09e1, type: 3}
+    - {fileID: 300748151990519687, guid: 60ed7076cc01bd04b81d2772a255e166, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -221,7 +222,7 @@ AnimationClip:
   - time: 0
     functionName: playVoice
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: 9c0f98c0c8d461e48bc0491179d040b5,
+    objectReferenceParameter: {fileID: 8300000, guid: a12e808af9679d34cab6144616da42b7,
       type: 3}
     floatParameter: 0
     intParameter: 0

@@ -9,24 +9,24 @@ AnimatorController:
   m_Name: BannerAnimator
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: SHOW_ROUND_FIGHT
+  - m_Name: Show_Round_Fight
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: SHOW_YOU_WIN
+    m_Controller: {fileID: 0}
+  - m_Name: Show_You_Win
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: SHOW_YOU_LOSE
+    m_Controller: {fileID: 0}
+  - m_Name: Show_You_Lose
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -71,7 +71,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: SHOW_ROUND_FIGHT
+    m_ConditionEvent: Show_Round_Fight
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110254066}
@@ -118,7 +118,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: SHOW_YOU_WIN
+    m_ConditionEvent: Show_You_Win
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110290464}
@@ -165,7 +165,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: SHOW_YOU_LOSE
+    m_ConditionEvent: Show_You_Lose
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 110239614}
@@ -311,7 +311,7 @@ AnimatorStateMachine:
     m_Position: {x: 528, y: 36, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 110239614}
-    m_Position: {x: 600, y: 144, z: 0}
+    m_Position: {x: 600, y: 140, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
