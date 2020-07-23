@@ -2,7 +2,7 @@
 using System.Collections;
 
 public enum FighterStates  {
-	IDLE, WALK, WALK_BACK, JUMP, DUCK, HADOKEN,
-	ATTACK, TAKE_HIT, TAKE_HIT_DEFEND, 
-	DEFEND, CELEBRATE, DEAD, NONE
+	Idle, Walk_Forward, Walk_Backward, Jump, Duck, HADOKEN,
+	Attack, Take_Hit, Take_Hit_Defend, 
+	Defend, Victory, Death, None
 }

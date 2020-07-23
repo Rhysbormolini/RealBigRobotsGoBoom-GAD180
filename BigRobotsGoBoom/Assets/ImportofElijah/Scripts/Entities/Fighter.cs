@@ -15,7 +15,7 @@ public class Fighter : MonoBehaviour {
 	public bool enable;
 
 	public PlayerType player;
-	public FighterStates currentState = FighterStates.IDLE;
+	public FighterStates currentState = FighterStates.Idle;
 
 	protected Animator animator;
 	private Rigidbody myBody;
@@ -108,8 +108,8 @@ public class Fighter : MonoBehaviour {
 
 		}
 
-		if (healt <= 0 && currentState != FighterStates.DEAD) {
-			animator.SetTrigger ("DEAD");
+		if (healt <= 0 && currentState != FighterStates.Death) {
+			animator.SetTrigger ("Death");
 		}
 	}
 
@@ -129,7 +129,7 @@ public class Fighter : MonoBehaviour {
 			}
 
 			if (healt > 0) {
-				animator.SetTrigger ("TAKE_HIT");
+				animator.SetTrigger ("Take_Hit");
 			}
 		}
 	}
@@ -140,22 +140,22 @@ public class Fighter : MonoBehaviour {
 
 	public bool invulnerable {
 		get {
-			return currentState == FighterStates.TAKE_HIT 
-				|| currentState == FighterStates.TAKE_HIT_DEFEND
-					|| currentState == FighterStates.DEAD;
+			return currentState == FighterStates.Take_Hit 
+				|| currentState == FighterStates.Take_Hit_Defend
+					|| currentState == FighterStates.Death;
 		}
 	}
 
 	public bool defending {
 		get {
-			return currentState == FighterStates.DEFEND 
-				|| currentState == FighterStates.TAKE_HIT_DEFEND;
+			return currentState == FighterStates.Defend 
+				|| currentState == FighterStates.Take_Hit_Defend;
 		}
 	}
 
 	public bool attacking {
 		get {
-			return currentState == FighterStates.ATTACK;
+			return currentState == FighterStates.Attack;
 		}	
 	}
 
