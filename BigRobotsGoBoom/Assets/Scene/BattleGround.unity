@@ -616,11 +616,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roundTime: 99
-  player1: {fileID: 1979419374}
-  player2: {fileID: 2052586904}
+  player1: {fileID: 1431135783}
+  player2: {fileID: 338064225}
   banner: {fileID: 186873261}
   musicPlayer: {fileID: 749281212}
-  backgroundMusic: {fileID: 8300000, guid: 9bd1f1c49cef48f4daffd5840cfb286c, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 98bea9340e109e24f90cd03e7c2574b9, type: 3}
 --- !u!4 &389176204
 Transform:
   m_ObjectHideFlags: 0
@@ -717,7 +717,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 111812, guid: b25efcea0535ddc4aa14dc500e3dd53c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 410104, guid: b25efcea0535ddc4aa14dc500e3dd53c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1209,7 +1209,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 8c43e86bd8999354d9e6bc30dd8ea47a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 8c43e86bd8999354d9e6bc30dd8ea47a,
         type: 3}
@@ -1681,7 +1681,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: c4094016b881f694abe667397da97646,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: c4094016b881f694abe667397da97646,
         type: 3}
@@ -1986,7 +1986,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 122140, guid: 4fb482866d267e344ab7a77928e5e723, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 488622, guid: 4fb482866d267e344ab7a77928e5e723, type: 3}
       propertyPath: m_LocalPosition.x
