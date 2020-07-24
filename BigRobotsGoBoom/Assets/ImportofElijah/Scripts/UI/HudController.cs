@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HudController : MonoBehaviour {
 	public Fighter player1;
@@ -33,5 +34,18 @@ public class HudController : MonoBehaviour {
 		if (rightBar.size > player2.healthPercent) {
 			rightBar.size-= 0.01f;
 		}
-	}
+	
+
+    
+    /*
+        timer -= Time.deltaTime;
+
+        if (timer <= 0)
+        {
+            timer = 0;
+            //You can restart the scene here
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        */
+    }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class BattleController : MonoBehaviour {
 	public int roundTime = 100;
@@ -7,7 +8,9 @@ public class BattleController : MonoBehaviour {
 	private bool battleStarted;
 	private bool battleEnded;
 
-	public Fighter player1;
+    public float timeLeft = 10.0f; // set game time
+
+    public Fighter player1;
 	public Fighter player2;
 	public BannerController banner;
 	public AudioSource musicPlayer;
@@ -55,5 +58,18 @@ public class BattleController : MonoBehaviour {
 				battleEnded = true;
 			}
 		}
-	}
+
+        //timer
+        {
+            timeLeft -= Time.deltaTime;
+            if (timeLeft <= 0)
+                GameOver();
+        }
+
+       
+        void GameOver()
+        {
+            SceneManager.LoadScene(0); // reset to menu
+        }
+    }
 }
