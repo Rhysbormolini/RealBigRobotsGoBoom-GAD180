@@ -4863,7 +4863,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064985632}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.06348241, y: 0.30511874, z: 0.8632306}
@@ -4880,7 +4880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109d083b1eda3d043bf618bed87b680e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  punchName: sword
+  attackName: 
   damage: 5
   owner: {fileID: 717752747}
 --- !u!1001 &2084388803
@@ -4964,6 +4964,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1543391014537845446}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2111540810 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3976377267050371887, guid: 1cf2434d6929ed44e8e88d8fe52cb148,
+    type: 3}
+  m_PrefabInstance: {fileID: 1543391014537845446}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2111540811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111540809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 109d083b1eda3d043bf618bed87b680e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackName: 
+  damage: 5
+  owner: {fileID: 2032969890}
 --- !u!65 &2111540813
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4972,7 +4993,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111540809}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.08260245, y: 0.2733153, z: 0.7980419}
@@ -5242,6 +5263,16 @@ PrefabInstance:
       propertyPath: play1Sword
       value: 
       objectReference: {fileID: 2064985633}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: player
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: jumpHeight
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5235978600135410905, guid: efe19ee7b2c4ccc4aa533c07b3730160,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5376,6 +5407,21 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7293227159913971576, guid: 1cf2434d6929ed44e8e88d8fe52cb148,
+        type: 3}
+      propertyPath: player
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293227159913971576, guid: 1cf2434d6929ed44e8e88d8fe52cb148,
+        type: 3}
+      propertyPath: jumpHeight
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293227159913971576, guid: 1cf2434d6929ed44e8e88d8fe52cb148,
+        type: 3}
+      propertyPath: play1Sword
+      value: 
+      objectReference: {fileID: 2111540810}
     - target: {fileID: 5769547893032518987, guid: 1cf2434d6929ed44e8e88d8fe52cb148,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -9,14 +9,15 @@ public class Fighter : MonoBehaviour {
 
 	public static float MAX_HEALTH = 100f;
 
-	public float healt = MAX_HEALTH;
+	public float health = MAX_HEALTH;
 	public string fighterName;
 	public Fighter oponent;
 	public bool enable;
+    
     public Component play1Sword;
 
     public float moveSpeed;
-    public float jumpHeight;
+    public float jumpHeight = 1f;
 
 	public PlayerType player;
 	public FighterStates currentState = FighterStates.Idle;
@@ -26,8 +27,8 @@ public class Fighter : MonoBehaviour {
 	private AudioSource audioPlayer;
 
 	//for AI only
-	//private float random;
-	//private float randomSetTime;
+	private float random;
+	private float randomSetTime;
 	
 	// Use this for initialization
 	void Start () {
@@ -78,29 +79,35 @@ public class Fighter : MonoBehaviour {
         {
             animator.SetBool("Walk Backward", false);
         }
-         
+
+        //jump
+        if (Input.GetKey(KeyCode.W) == true && Mathf.Abs(this.GetComponent<Rigidbody>().velocity.y) < 0.01f)
+        {
+            this.GetComponent<Rigidbody>().velocity += Vector3.up * this.jumpHeight;
+        }
 
 
-            /*
-            if (Input.GetAxis ("Vertical") < -0.1) {
-                animator.SetBool ("DUCK", true);
-            } else {
-                animator.SetBool ("DUCK", false);
-            }
-            */
-/*
-            if (Input.GetKeyDown (KeyCode.W)) {
-			animator.SetTrigger("Jump");
-		} 
 
-		if (Input.GetKeyDown (KeyCode.V) == true) {
-			animator.Play("Hit Sword");
-		}
+        /*
+        if (Input.GetAxis ("Vertical") < -0.1) {
+            animator.SetBool ("DUCK", true);
+        } else {
+            animator.SetBool ("DUCK", false);
+        }
+        */
+        /*
+                    if (Input.GetKeyDown (KeyCode.W)) {
+                    animator.SetTrigger("Jump");
+                } 
 
-		if (Input.GetKeyDown (KeyCode.B)) {
-			animator.SetTrigger("Hit Gun");
-		}
-*/
+                if (Input.GetKeyDown (KeyCode.V) == true) {
+                    animator.Play("Hit Sword");
+                }
+
+                if (Input.GetKeyDown (KeyCode.B)) {
+                    animator.SetTrigger("Hit Gun");
+                }
+        */
         if (Input.GetKey(KeyCode.V) == true)
         {
             animator.SetBool("Hit_Sword_0", true);
@@ -112,9 +119,23 @@ public class Fighter : MonoBehaviour {
             //(play1Sword.GetComponent(typeof(BoxCollider)) as Collider).enabled = false;
         }
 
+        /*
+        if (Input.GetKey(KeyCode.B) == true)
+        {
+            animator.SetBool("Hit_Gun", true);
+            Debug.Log("hit gun");
+        }
+        else
+        {
+            animator.SetBool("Hit_Gun", false);
+        }
+        */
+
+
+
     }
 
-	/*public void UpdateAiInput (){
+	public void UpdateAiInput (){
 		animator.SetBool ("defending", defending);
 		//animator.SetBool ("invulnerable", invulnerable);
 		//animator.SetBool ("enable", enable);
@@ -128,14 +149,16 @@ public class Fighter : MonoBehaviour {
 		}
 		animator.SetFloat ("random", random);
 	}
-	*/
+	
 
 	// Update is called once per frame
 	void Update () {
-		animator.SetFloat ("health", healtPercent);
+       
+
+        animator.SetFloat ("health", healthPercent);
 
 		if (oponent != null) {
-			animator.SetFloat ("oponent_health", oponent.healtPercent);
+			animator.SetFloat ("oponent_health", oponent.healthPercent);
 		} else {
 			animator.SetFloat ("oponent_health", 1);
 		}
@@ -144,12 +167,12 @@ public class Fighter : MonoBehaviour {
 			if (player == PlayerType.HUMAN) {
 				UpdateHumanInput ();
 			}else{
-				//UpdateAiInput();
+				UpdateAiInput();
 			}
 
 		}
 
-		if (healt <= 0 && currentState != FighterStates.Death) {
+		if (health <= 0 && currentState != FighterStates.Death) {
 			animator.SetTrigger ("Death");
 		}
 	}
@@ -163,13 +186,13 @@ public class Fighter : MonoBehaviour {
 			if (defending){
 				damage *= 0.2f;
 			}
-			if (healt >= damage) {
-				healt -= damage;
+			if (health >= damage) {
+				health -= damage;
 			} else {
-				healt = 0;
+				health = 0;
 			}
 
-			if (healt > 0) {
+			if (health > 0) {
 				animator.SetTrigger ("Take_Hit");
 			}
 		}
@@ -200,9 +223,9 @@ public class Fighter : MonoBehaviour {
 		}	
 	}
 
-	public float healtPercent {
+	public float healthPercent {
 		get {
-			return healt / MAX_HEALTH;
+			return health / MAX_HEALTH;
 		}	
 	}
 

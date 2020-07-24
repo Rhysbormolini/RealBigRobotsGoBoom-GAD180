@@ -19,10 +19,10 @@ public class BattleController : MonoBehaviour {
 	}
 
 	private void expireTime(){
-		if (player1.healtPercent > player2.healtPercent) {
-			player2.healt = 0;
+		if (player1.healthPercent > player2.healthPercent) {
+			player2.health = 0;
 		} else {
-			player1.healt = 0;
+			player1.health = 0;
 		}
 	}
 	
@@ -46,11 +46,11 @@ public class BattleController : MonoBehaviour {
 				}
 			}
 
-			if (player1.healtPercent <= 0) {
+			if (player1.healthPercent <= 0) {
 				banner.showYouLose ();
 				battleEnded = true;
 
-			} else if (player2.healtPercent <= 0) {
+			} else if (player2.healthPercent <= 0) {
 				banner.showYouWin ();
 				battleEnded = true;
 			}
