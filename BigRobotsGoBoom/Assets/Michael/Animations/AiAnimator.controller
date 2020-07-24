@@ -10,7 +10,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: distanceToOponent
-    m_EventTreshold: 1.5
+    m_EventTreshold: 1.75
   - m_ConditionMode: 3
     m_ConditionEvent: oponent_health
     m_EventTreshold: 0.01
@@ -36,7 +36,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hit Gun
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8721071904980422017}
@@ -73,7 +73,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0.01
   - m_ConditionMode: 4
     m_ConditionEvent: distanceToOponent
-    m_EventTreshold: 1.5
+    m_EventTreshold: 1.75
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5300742796117503802}
   m_Solo: 0
@@ -101,7 +101,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0.5
   - m_ConditionMode: 4
     m_ConditionEvent: distanceToOponent
-    m_EventTreshold: 1.5
+    m_EventTreshold: 1.75
   - m_ConditionMode: 3
     m_ConditionEvent: oponent_health
     m_EventTreshold: 0.01
@@ -135,7 +135,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0.01
   - m_ConditionMode: 3
     m_ConditionEvent: distanceToOponent
-    m_EventTreshold: 1.5
+    m_EventTreshold: 1.75
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3343691059789826037}
   m_Solo: 0
@@ -158,7 +158,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Take Hit
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -899703973325414795}
@@ -274,7 +274,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Walk Forward
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 862424662678533442}
@@ -425,7 +425,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: distanceToOponent
-    m_EventTreshold: 1.5
+    m_EventTreshold: 1.75
   - m_ConditionMode: 3
     m_ConditionEvent: random
     m_EventTreshold: 0.3
@@ -453,13 +453,13 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: distanceToOponent
-    m_EventTreshold: 0.5
+    m_EventTreshold: 1.75
   - m_ConditionMode: 3
-    m_ConditionEvent: random
+    m_ConditionEvent: oponent_health
     m_EventTreshold: 0.01
   - m_ConditionMode: 3
     m_ConditionEvent: random
-    m_EventTreshold: 0
+    m_EventTreshold: 0.5
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1090262967482380459}
   m_Solo: 0
@@ -482,7 +482,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Walk Backward
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 6713329140314846491}
@@ -617,7 +617,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: distanceToOponent
-    m_EventTreshold: 1.5
+    m_EventTreshold: 1.75
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5807134224679471779}
   m_Solo: 0
@@ -667,7 +667,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: distanceToOponent
-    m_EventTreshold: 1.5
+    m_EventTreshold: 1.75
   - m_ConditionMode: 3
     m_ConditionEvent: oponent_health
     m_EventTreshold: 0.01
@@ -698,7 +698,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0.5
   - m_ConditionMode: 4
     m_ConditionEvent: distanceToOponent
-    m_EventTreshold: 0.5
+    m_EventTreshold: 1.75
   - m_ConditionMode: 3
     m_ConditionEvent: oponent_health
     m_EventTreshold: 0.01
@@ -838,7 +838,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Hit Sword
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1876573603437605343}
@@ -921,7 +921,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0.5
   - m_ConditionMode: 4
     m_ConditionEvent: distanceToOponent
-    m_EventTreshold: 1.5
+    m_EventTreshold: 1.75
   - m_ConditionMode: 3
     m_ConditionEvent: oponent_health
     m_EventTreshold: 0.01
