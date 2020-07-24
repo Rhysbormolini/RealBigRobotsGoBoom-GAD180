@@ -14,6 +14,9 @@ public class Fighter : MonoBehaviour {
 	public Fighter oponent;
 	public bool enable;
 
+    public float moveSpeed;
+    //public float jumpHeight;
+
 	public PlayerType player;
 	public FighterStates currentState = FighterStates.Idle;
 
@@ -22,8 +25,8 @@ public class Fighter : MonoBehaviour {
 	private AudioSource audioPlayer;
 
 	//for AI only
-	private float random;
-	private float randomSetTime;
+	//private float random;
+	//private float randomSetTime;
 	
 	// Use this for initialization
 	void Start () {
@@ -32,8 +35,9 @@ public class Fighter : MonoBehaviour {
 		audioPlayer = GetComponent<AudioSource> ();
 	}
 
-	public void UpdateHumanInput (){
-		if (Input.GetAxis ("Horizontal") > 0.1) {
+    public void UpdateHumanInput() {
+        /*
+         if (Input.GetAxis ("Horizontal") > 0.1) {
 			animator.SetBool ("Walk Forward", true);
 		} else {
 			animator.SetBool ("Walk Forward", false);
@@ -41,40 +45,74 @@ public class Fighter : MonoBehaviour {
 
 		if (Input.GetAxis ("Horizontal") < -0.1) {
 			if (oponent.attacking){
-				animator.SetBool ("Walk Forward", false); //backward
+				animator.SetBool ("Walk Backward", false); //backward
 				//animator.SetBool ("Block", true);
 			}else{
-				animator.SetBool ("Walk Forward", true); //backward
+				animator.SetBool ("Walk Backward", true); //backward
 				//animator.SetBool ("Block", false);
 			}
 		} else {
-			animator.SetBool ("Walk Forward", false); //backward
+			animator.SetBool ("Walk Backward", false); //backward
 			//animator.SetBool ("Block", false);
-		}
-
-        /*
-		if (Input.GetAxis ("Vertical") < -0.1) {
-			animator.SetBool ("DUCK", true);
-		} else {
-			animator.SetBool ("DUCK", false);
 		}
         */
 
-		if (Input.GetKeyDown (KeyCode.W)) {
+        if (Input.GetKey(KeyCode.D) == true)
+        {
+            this.transform.position += this.transform.forward * Time.deltaTime * this.moveSpeed;
+            animator.SetBool("Walk Forward", true);
+        }
+        else
+        {
+            animator.SetBool("Walk Forward", false);
+        }
+
+        if (Input.GetKey(KeyCode.A) == true)
+            {
+            this.transform.position -= this.transform.forward * Time.deltaTime * this.moveSpeed;
+            animator.SetBool("Walk Backward", true);
+            }
+        else
+        {
+            animator.SetBool("Walk Backward", false);
+        }
+         
+
+
+            /*
+            if (Input.GetAxis ("Vertical") < -0.1) {
+                animator.SetBool ("DUCK", true);
+            } else {
+                animator.SetBool ("DUCK", false);
+            }
+            */
+/*
+            if (Input.GetKeyDown (KeyCode.W)) {
 			animator.SetTrigger("Jump");
 		} 
 
-		if (Input.GetKeyDown (KeyCode.V)) {
-			animator.SetTrigger("Hit Sword");
+		if (Input.GetKeyDown (KeyCode.V) == true) {
+			animator.Play("Hit Sword");
 		}
 
 		if (Input.GetKeyDown (KeyCode.B)) {
 			animator.SetTrigger("Hit Gun");
 		}
+*/
+        if (Input.GetKey(KeyCode.V) == true)
+        {
+            animator.SetBool("Hit_Sword", true);
 
-	}
+            Debug.Log("hit sword");
+        }
+        else
+        {
+            animator.SetBool("Hit_Sword", false);
+        }
 
-	public void UpdateAiInput (){
+    }
+
+	/*public void UpdateAiInput (){
 		animator.SetBool ("defending", defending);
 		//animator.SetBool ("invulnerable", invulnerable);
 		//animator.SetBool ("enable", enable);
@@ -88,7 +126,8 @@ public class Fighter : MonoBehaviour {
 		}
 		animator.SetFloat ("random", random);
 	}
-	
+	*/
+
 	// Update is called once per frame
 	void Update () {
 		animator.SetFloat ("health", healtPercent);
@@ -103,7 +142,7 @@ public class Fighter : MonoBehaviour {
 			if (player == PlayerType.HUMAN) {
 				UpdateHumanInput ();
 			}else{
-				UpdateAiInput();
+				//UpdateAiInput();
 			}
 
 		}

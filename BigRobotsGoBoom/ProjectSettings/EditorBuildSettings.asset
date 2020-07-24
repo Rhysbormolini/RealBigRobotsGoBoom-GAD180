@@ -5,10 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Rhys's Folder/Scenes/Main Menu.unity
-    guid: 53b9e9f0af27f584cacfce437e6e8a50
-  - enabled: 1
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Rhys's Folder/Scenes/Rhys's Ui Scene.unity
     guid: c650c1ffd96eae243886c6e781438ac0
+  - enabled: 1
+    path: Assets/Rhys's Folder/Scenes/Main Menu.unity
+    guid: 774e1a357523d1649ab228c2499b5eca
+  - enabled: 1
+    path: Assets/Michael/Scenes/BlockOut.unity
+    guid: 9d8a0b233d3160a42a9434a9a95810f6
   m_configObjects: {}
