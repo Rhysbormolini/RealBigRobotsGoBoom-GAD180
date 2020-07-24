@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Fighter : MonoBehaviour {
 	public enum PlayerType
@@ -170,11 +171,18 @@ public class Fighter : MonoBehaviour {
 		}
 
 		if (health <= 0 && currentState != FighterStates.Death) {
-			animator.SetTrigger ("Death");
-		}
-	}
+            //animator.SetTrigger ("Death");
+            GameOver();
+        }
 
-	private float getDistanceToOponennt(){
+        void GameOver()
+        {
+            SceneManager.LoadScene(0); // reset to menu
+        }
+    }
+   
+
+    private float getDistanceToOponennt(){
 		return Mathf.Abs(transform.position.x - oponent.transform.position.x);
 	}
 
