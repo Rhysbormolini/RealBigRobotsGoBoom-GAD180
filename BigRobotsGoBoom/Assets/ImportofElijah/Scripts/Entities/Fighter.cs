@@ -13,9 +13,11 @@ public class Fighter : MonoBehaviour {
 	public string fighterName;
 	public Fighter oponent;
 	public bool enable;
+    public Component play1Sword;
+    private IENumerator waitForSec(float sec) //
 
     public float moveSpeed;
-    //public float jumpHeight;
+    public float jumpHeight;
 
 	public PlayerType player;
 	public FighterStates currentState = FighterStates.Idle;
@@ -36,6 +38,8 @@ public class Fighter : MonoBehaviour {
 	}
 
     public void UpdateHumanInput() {
+        StartCoroutine(waitForSec(.5f)); //
+
         /*
          if (Input.GetAxis ("Horizontal") > 0.1) {
 			animator.SetBool ("Walk Forward", true);
@@ -101,13 +105,20 @@ public class Fighter : MonoBehaviour {
 */
         if (Input.GetKey(KeyCode.V) == true)
         {
-            animator.SetBool("Hit_Sword", true);
+            animator.SetBool("Hit_Sword_0", true);
+            (play1Sword.GetComponent(typeof(BoxCollider)) as Collider).enabled = true;
+
+            
+            {
+                yield return new WaitForSeconds(sec);//
+                m_Collider.enabled = false//
 
             Debug.Log("hit sword");
         }
         else
         {
-            animator.SetBool("Hit_Sword", false);
+            animator.SetBool("Hit_Sword_0", false);
+            (play1Sword.GetComponent(typeof(BoxCollider)) as Collider).enabled = false;
         }
 
     }
