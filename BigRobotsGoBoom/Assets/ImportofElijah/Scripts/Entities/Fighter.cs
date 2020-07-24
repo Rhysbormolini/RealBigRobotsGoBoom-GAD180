@@ -13,8 +13,6 @@ public class Fighter : MonoBehaviour {
 	public string fighterName;
 	public Fighter oponent;
 	public bool enable;
-    
-    public Component play1Sword;
 
     public float moveSpeed;
     public float jumpHeight = 1f;
@@ -116,7 +114,6 @@ public class Fighter : MonoBehaviour {
         else
         {
             animator.SetBool("Hit_Sword_0", false);
-            //(play1Sword.GetComponent(typeof(BoxCollider)) as Collider).enabled = false;
         }
 
         /*

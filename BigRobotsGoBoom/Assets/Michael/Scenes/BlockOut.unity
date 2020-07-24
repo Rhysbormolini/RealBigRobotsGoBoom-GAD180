@@ -2280,24 +2280,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &627225999 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9147575086701131466, guid: efe19ee7b2c4ccc4aa533c07b3730160,
-    type: 3}
-  m_PrefabInstance: {fileID: 996238921037876754}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &627226004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627225999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61a6978df677e9f4eae4d44ee9c9ca09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &672759010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2403,7 +2385,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 996238921037876754}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 627225999}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d8ee21f2d8d6844e8009e518a712ebe, type: 3}
@@ -4732,31 +4714,13 @@ Transform:
   m_Father: {fileID: 1597282522}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2012352426 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7370937821925242712, guid: 1cf2434d6929ed44e8e88d8fe52cb148,
-    type: 3}
-  m_PrefabInstance: {fileID: 1543391014537845446}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2012352431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012352426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2afcbda14b5cd654f97bdbd5bb8f4243, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2032969890 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7293227159913971576, guid: 1cf2434d6929ed44e8e88d8fe52cb148,
     type: 3}
   m_PrefabInstance: {fileID: 1543391014537845446}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2012352426}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d8ee21f2d8d6844e8009e518a712ebe, type: 3}
@@ -4880,7 +4844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109d083b1eda3d043bf618bed87b680e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: 
+  attackName: Hit Sword
   damage: 5
   owner: {fileID: 717752747}
 --- !u!1001 &2084388803
@@ -4982,7 +4946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 109d083b1eda3d043bf618bed87b680e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackName: 
+  attackName: Hit Sword
   damage: 5
   owner: {fileID: 2032969890}
 --- !u!65 &2111540813
@@ -5271,7 +5235,7 @@ PrefabInstance:
     - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
         type: 3}
       propertyPath: jumpHeight
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5235978600135410905, guid: efe19ee7b2c4ccc4aa533c07b3730160,
         type: 3}
@@ -5331,7 +5295,7 @@ PrefabInstance:
     - target: {fileID: 9172999378957697452, guid: efe19ee7b2c4ccc4aa533c07b3730160,
         type: 3}
       propertyPath: m_TagString
-      value: PlayerOne
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5635094645431607948, guid: efe19ee7b2c4ccc4aa533c07b3730160,
         type: 3}
@@ -5390,7 +5354,7 @@ PrefabInstance:
     - target: {fileID: 7370937821925242712, guid: 1cf2434d6929ed44e8e88d8fe52cb148,
         type: 3}
       propertyPath: m_TagString
-      value: PlayerTwo
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 7293227159913971576, guid: 1cf2434d6929ed44e8e88d8fe52cb148,
         type: 3}
