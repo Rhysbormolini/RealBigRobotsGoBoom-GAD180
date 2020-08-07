@@ -14,6 +14,7 @@ public class HudController : MonoBehaviour {
 	public Scrollbar rightBar;
 
 	public Text timerText;
+    //public float timer;
 
 	public BattleController battle;
 
@@ -47,5 +48,6 @@ public class HudController : MonoBehaviour {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         */
+        
     }
 }

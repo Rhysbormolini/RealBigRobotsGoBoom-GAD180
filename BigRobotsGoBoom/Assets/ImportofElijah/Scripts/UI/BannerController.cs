@@ -17,7 +17,7 @@ public class BannerController : MonoBehaviour {
 
 	public void showRoundFight(){
 		animating = true;
-		//animator.SetTrigger ("Show_Round_Fight");
+		animator.SetTrigger ("Show_Round_Fight"); //
 	}
 
 	public void showYouWin(){

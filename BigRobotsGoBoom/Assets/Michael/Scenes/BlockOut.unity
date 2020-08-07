@@ -1039,7 +1039,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh82034
+  m_Name: pb_Mesh80746
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3038,7 +3038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42bece7cc4cee345868e1a97868ec13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundTime: 99
+  roundTime: 20
   timeLeft: 999
   player1: {fileID: 717752747}
   player2: {fileID: 2032969890}
@@ -3646,7 +3646,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh82306
+  m_Name: pb_Mesh81018
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5188,15 +5188,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 300748151990519687, guid: 60ed7076cc01bd04b81d2772a255e166, type: 3}
+  m_Sprite: {fileID: -1921527909681673807, guid: 60ed7076cc01bd04b81d2772a255e166,
+    type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &2137632445
 CanvasRenderer:
