@@ -5,21 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGamePvAI()
+    public void PlayGamePvP()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    public void PlayGameAIvP()
+    public void PlayGamePvAI()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
-    public void PlayGamePvP()
+    public void PlayGameAIvP()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 3);
-    }
-    public void Parsec()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 4);
     }
 
     public void QuitGame()

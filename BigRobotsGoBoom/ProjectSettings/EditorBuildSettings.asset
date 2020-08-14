@@ -15,6 +15,15 @@ EditorBuildSettings:
     path: Assets/Rhys's Folder/Scenes/Main Menu.unity
     guid: 774e1a357523d1649ab228c2499b5eca
   - enabled: 1
+    path: Assets/Michael/Scenes/PvP.unity
+    guid: 72e6512899e762640a8b26d56388a641
+  - enabled: 1
+    path: Assets/Michael/Scenes/PvAI.unity
+    guid: e8071a1359d769e419632c6cda939e04
+  - enabled: 1
+    path: Assets/Michael/Scenes/AIvP.unity
+    guid: 2a88215141ae47440bd2fd7a4a38d4d3
+  - enabled: 0
     path: Assets/Michael/Scenes/BlockOut.unity
     guid: 9d8a0b233d3160a42a9434a9a95810f6
   m_configObjects: {}
