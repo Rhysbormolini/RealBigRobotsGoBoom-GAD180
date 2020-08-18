@@ -28,7 +28,14 @@ public class Fighter : MonoBehaviour {
 	//for AI only
 	private float random;
 	private float randomSetTime;
-	
+	//for jump animation stop
+	public Transform groundCheck;
+	public float groundDistance = 0.1f;
+	public LayerMask groundMask;
+	bool isGrounded;
+
+	public Transform shootBox;
+
 	// Use this for initialization
 	void Start () {
 		myBody = GetComponent<Rigidbody> ();
@@ -82,19 +89,27 @@ public class Fighter : MonoBehaviour {
         //jump
         if (Input.GetKey(KeyCode.W) == true && Mathf.Abs(this.GetComponent<Rigidbody>().velocity.y) < 0.01f)
         {
-            this.GetComponent<Rigidbody>().velocity += Vector3.up * this.jumpHeight;
-        }
+			animator.SetBool("Jump", true);
+			this.GetComponent<Rigidbody>().velocity += Vector3.up * this.jumpHeight;
+			
+			isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+		
+		}
+		else if (isGrounded == true)
+		{
+			animator.SetBool("Jump", false);
+		}
 
 
-
-        /*
+		/*
         if (Input.GetAxis ("Vertical") < -0.1) {
             animator.SetBool ("DUCK", true);
         } else {
             animator.SetBool ("DUCK", false);
         }
         */
-        /*
+		/*
                     if (Input.GetKeyDown (KeyCode.W)) {
                     animator.SetTrigger("Jump");
                 } 
@@ -107,7 +122,7 @@ public class Fighter : MonoBehaviour {
                     animator.SetTrigger("Hit Gun");
                 }
         */
-        if (Input.GetKey(KeyCode.V) == true)
+		if (Input.GetKey(KeyCode.V) == true)
         {
             animator.SetBool("Hit_Sword_0", true);
             Debug.Log("hit sword");
@@ -117,17 +132,20 @@ public class Fighter : MonoBehaviour {
             animator.SetBool("Hit_Sword_0", false);
         }
 
-        /*
+        
         if (Input.GetKey(KeyCode.B) == true)
         {
-            animator.SetBool("Hit_Gun", true);
+            animator.SetBool("Shoot", true);
             Debug.Log("hit gun");
-        }
+			shootBox.transform.GetComponent<BoxCollider>().enabled = true;
+		}
+	
         else
         {
-            animator.SetBool("Hit_Gun", false);
-        }
-        */
+            animator.SetBool("Shoot", false);
+			shootBox.transform.GetComponent<BoxCollider>().enabled = false;
+		}
+        
 
 
 
