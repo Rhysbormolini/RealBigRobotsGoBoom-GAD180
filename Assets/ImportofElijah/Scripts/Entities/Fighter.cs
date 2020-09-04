@@ -36,6 +36,8 @@ public class Fighter : MonoBehaviour {
 
 	public Transform shootBox;
 
+	public Transform sheild;
+	bool isBlocking;
 	// Use this for initialization
 	void Start () {
 		myBody = GetComponent<Rigidbody> ();
@@ -145,11 +147,25 @@ public class Fighter : MonoBehaviour {
             animator.SetBool("Shoot", false);
 			shootBox.transform.GetComponent<BoxCollider>().enabled = false;
 		}
-        
 
+		if (Input.GetKeyDown(KeyCode.C) == true)
+		{
+			isBlocking = true;
+			Blocking(isBlocking);
+		}
+		if (Input.GetKeyUp(KeyCode.C) == true)
+		{
+			isBlocking = false;
+			Blocking(isBlocking);
+		}
+	}
 
+	public void Blocking(bool b)
+	{
+		sheild.transform.GetComponent<MeshCollider>().enabled = b;
+		sheild.transform.GetComponent<MeshRenderer>().enabled = b;
 
-    }
+	}
 
 	public void UpdateAiInput (){
 		animator.SetBool ("defending", defending);
