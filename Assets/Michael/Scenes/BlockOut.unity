@@ -2233,8 +2233,14 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1248152611}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &682208604
-MeshCollider:
+--- !u!4 &682208601 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6341575124859438869, guid: a584f5d9f97142842a7aa2dbb1fb0515,
+    type: 3}
+  m_PrefabInstance: {fileID: 1248152611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &682208604
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2243,10 +2249,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: -3563080631035801699, guid: a584f5d9f97142842a7aa2dbb1fb0515, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.1758655, y: 2.2350845, z: 0.58218235}
+  m_Center: {x: 0.00000333786, y: 0.00000333786, z: -0.0000009536743}
 --- !u!1 &698866781
 GameObject:
   m_ObjectHideFlags: 0
@@ -2303,7 +2308,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18174
+  m_Name: pb_Mesh20686
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2998,6 +3003,8 @@ MonoBehaviour:
     m_Bits: 512
   shootBox: {fileID: 1615182847}
   sheild: {fileID: 1048618011}
+  eShootBox: {fileID: 1625780622}
+  eMeleeBox: {fileID: 2064985633}
 --- !u!4 &1012009104 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: a584f5d9f97142842a7aa2dbb1fb0515,
@@ -3472,7 +3479,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17980
+  m_Name: pb_Mesh20492
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5088,7 +5095,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18334
+  m_Name: pb_Mesh20848
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5257,7 +5264,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh18138
+  m_Name: pb_Mesh20650
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6901,11 +6908,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9172999378957697452, guid: efe19ee7b2c4ccc4aa533c07b3730160,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
         type: 3}
       propertyPath: oponent
@@ -6966,6 +6968,21 @@ PrefabInstance:
       propertyPath: sheild
       value: 
       objectReference: {fileID: 860892029}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: eMeleeBox
+      value: 
+      objectReference: {fileID: 682208601}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: eShootBox
+      value: 
+      objectReference: {fileID: 1615182847}
+    - target: {fileID: 9172999378957697452, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5635094645431607948, guid: efe19ee7b2c4ccc4aa533c07b3730160,
         type: 3}
       propertyPath: m_PlayOnAwake
