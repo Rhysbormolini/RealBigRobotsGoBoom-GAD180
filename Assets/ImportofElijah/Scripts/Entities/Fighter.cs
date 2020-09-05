@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 public class Fighter : MonoBehaviour {
 	public enum PlayerType
 	{
-		HUMAN, AI	
+		HUMANPALADIN, AIPALADIN, HUMANSTING, AISTING	
 	};
 
+   
 	public static float MAX_HEALTH = 100f;
 
 	public float health = MAX_HEALTH;
@@ -38,6 +39,7 @@ public class Fighter : MonoBehaviour {
 
 	public Transform sheild;
 	bool isBlocking;
+
 	// Use this for initialization
 	void Start () {
 		myBody = GetComponent<Rigidbody> ();
@@ -45,7 +47,8 @@ public class Fighter : MonoBehaviour {
 		audioPlayer = GetComponent<AudioSource> ();
 	}
 
-    public void UpdateHumanInput() {
+
+    public void UpdateHumanPaladinInput() {
 
         /*
          if (Input.GetAxis ("Horizontal") > 0.1) {
@@ -68,6 +71,7 @@ public class Fighter : MonoBehaviour {
 		}
         */
 
+       
         if (Input.GetKey(KeyCode.D) == true)
         {
             this.transform.position += this.transform.forward * Time.deltaTime * this.moveSpeed;
@@ -158,33 +162,417 @@ public class Fighter : MonoBehaviour {
 			isBlocking = false;
 			Blocking(isBlocking);
 		}
-	}
+    } //UpdateHumanPaladinInput
 
-    public void Blocking(bool b)
-	{
-		sheild.transform.GetComponent<MeshCollider>().enabled = b;
-		sheild.transform.GetComponent<MeshRenderer>().enabled = b;
+    public void UpdateAIPaladinInput()
+    {
 
-	}
-
-	public void UpdateAiInput (){
-		animator.SetBool ("defending", defending);
-		//animator.SetBool ("invulnerable", invulnerable);
-		//animator.SetBool ("enable", enable);
-
-		animator.SetBool ("oponent_attacking", oponent.attacking);
-		animator.SetFloat ("distanceToOponent", getDistanceToOponennt());
-
-		if (Time.time - randomSetTime > 1) {
-			random = Random.value;
-			randomSetTime = Time.time;
+        /*
+         if (Input.GetAxis ("Horizontal") > 0.1) {
+			animator.SetBool ("Walk Forward", true);
+		} else {
+			animator.SetBool ("Walk Forward", false);
 		}
-		animator.SetFloat ("random", random);
-	}
+
+		if (Input.GetAxis ("Horizontal") < -0.1) {
+			if (oponent.attacking){
+				animator.SetBool ("Walk Backward", false); //backward
+				//animator.SetBool ("Block", true);
+			}else{
+				animator.SetBool ("Walk Backward", true); //backward
+				//animator.SetBool ("Block", false);
+			}
+		} else {
+			animator.SetBool ("Walk Backward", false); //backward
+			//animator.SetBool ("Block", false);
+		}
+        */
+
+
+        if (Input.GetKey(KeyCode.D) == true)
+        {
+            this.transform.position += this.transform.forward * Time.deltaTime * this.moveSpeed;
+            animator.SetBool("Walk Forward", true);
+        }
+        else
+        {
+            animator.SetBool("Walk Forward", false);
+        }
+
+        if (Input.GetKey(KeyCode.A) == true)
+        {
+            this.transform.position -= this.transform.forward * Time.deltaTime * this.moveSpeed;
+            animator.SetBool("Walk Backward", true);
+        }
+        else
+        {
+            animator.SetBool("Walk Backward", false);
+        }
+
+        //jump
+        if (Input.GetKey(KeyCode.W) == true && Mathf.Abs(this.GetComponent<Rigidbody>().velocity.y) < 0.01f)
+        {
+            animator.SetBool("Jump", true);
+            this.GetComponent<Rigidbody>().velocity += Vector3.up * this.jumpHeight;
+
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+
+        }
+        else if (isGrounded == true)
+        {
+            animator.SetBool("Jump", false);
+        }
+
+
+        /*
+        if (Input.GetAxis ("Vertical") < -0.1) {
+            animator.SetBool ("DUCK", true);
+        } else {
+            animator.SetBool ("DUCK", false);
+        }
+        */
+        /*
+                    if (Input.GetKeyDown (KeyCode.W)) {
+                    animator.SetTrigger("Jump");
+                } 
+
+                if (Input.GetKeyDown (KeyCode.V) == true) {
+                    animator.Play("Hit Sword");
+                }
+
+                if (Input.GetKeyDown (KeyCode.B)) {
+                    animator.SetTrigger("Hit Gun");
+                }
+        */
+        if (Input.GetKey(KeyCode.C) == true)
+        {
+            animator.SetBool("Hit_Sword_0", true);
+            Debug.Log("hit sword");
+        }
+        else
+        {
+            animator.SetBool("Hit_Sword_0", false);
+        }
+
+
+        if (Input.GetKey(KeyCode.V) == true)
+        {
+            animator.SetBool("Shoot", true);
+            Debug.Log("hit gun");
+            shootBox.transform.GetComponent<BoxCollider>().enabled = true;
+        }
+
+        else
+        {
+            animator.SetBool("Shoot", false);
+            shootBox.transform.GetComponent<BoxCollider>().enabled = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.B) == true)
+        {
+            isBlocking = true;
+            Blocking(isBlocking);
+        }
+        if (Input.GetKeyUp(KeyCode.B) == true)
+        {
+            isBlocking = false;
+            Blocking(isBlocking);
+        }
+
+        //UpdateAIInput
+        {
+            animator.SetBool("defending", defending);
+            //animator.SetBool ("invulnerable", invulnerable);
+            //animator.SetBool ("enable", enable);
+
+            animator.SetBool("oponent_attacking", oponent.attacking);
+            animator.SetFloat("distanceToOponent", getDistanceToOponennt());
+
+            if (Time.time - randomSetTime > 1)
+            {
+                random = Random.value;
+                randomSetTime = Time.time;
+            }
+            animator.SetFloat("random", random);
+        }
+    } //UpdateAIPaladinInput
+
+    public void UpdateHumanStingInput()
+    {
+
+        /*
+         if (Input.GetAxis ("Horizontal") > 0.1) {
+			animator.SetBool ("Walk Forward", true);
+		} else {
+			animator.SetBool ("Walk Forward", false);
+		}
+
+		if (Input.GetAxis ("Horizontal") < -0.1) {
+			if (oponent.attacking){
+				animator.SetBool ("Walk Backward", false); //backward
+				//animator.SetBool ("Block", true);
+			}else{
+				animator.SetBool ("Walk Backward", true); //backward
+				//animator.SetBool ("Block", false);
+			}
+		} else {
+			animator.SetBool ("Walk Backward", false); //backward
+			//animator.SetBool ("Block", false);
+		}
+        */
+
+
+        if (Input.GetKey(KeyCode.RightArrow) == true)
+        {
+            this.transform.position += this.transform.forward * Time.deltaTime * this.moveSpeed;
+            animator.SetBool("Walk Forward", true);
+        }
+        else
+        {
+            animator.SetBool("Walk Forward", false);
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow) == true)
+        {
+            this.transform.position -= this.transform.forward * Time.deltaTime * this.moveSpeed;
+            animator.SetBool("Walk Backward", true);
+        }
+        else
+        {
+            animator.SetBool("Walk Backward", false);
+        }
+
+        //jump
+        if (Input.GetKey(KeyCode.UpArrow) == true && Mathf.Abs(this.GetComponent<Rigidbody>().velocity.y) < 0.01f)
+        {
+            animator.SetBool("Jump", true);
+            this.GetComponent<Rigidbody>().velocity += Vector3.up * this.jumpHeight;
+
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+
+        }
+        else if (isGrounded == true)
+        {
+            animator.SetBool("Jump", false);
+        }
+
+
+        /*
+        if (Input.GetAxis ("Vertical") < -0.1) {
+            animator.SetBool ("DUCK", true);
+        } else {
+            animator.SetBool ("DUCK", false);
+        }
+        */
+        /*
+                    if (Input.GetKeyDown (KeyCode.W)) {
+                    animator.SetTrigger("Jump");
+                } 
+
+                if (Input.GetKeyDown (KeyCode.V) == true) {
+                    animator.Play("Hit Sword");
+                }
+
+                if (Input.GetKeyDown (KeyCode.B)) {
+                    animator.SetTrigger("Hit Gun");
+                }
+        */
+        if (Input.GetKey(KeyCode.P) == true)
+        {
+            animator.SetBool("Hit_Sword_0", true);
+            Debug.Log("hit sword");
+        }
+        else
+        {
+            animator.SetBool("Hit_Sword_0", false);
+        }
+
+
+        if (Input.GetKey(KeyCode.O) == true)
+        {
+            animator.SetBool("Shoot", true);
+            Debug.Log("hit gun");
+            shootBox.transform.GetComponent<BoxCollider>().enabled = true;
+        }
+
+        else
+        {
+            animator.SetBool("Shoot", false);
+            shootBox.transform.GetComponent<BoxCollider>().enabled = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.I) == true)
+        {
+            isBlocking = true;
+            Blocking(isBlocking);
+        }
+        if (Input.GetKeyUp(KeyCode.B) == true)
+        {
+            isBlocking = false;
+            Blocking(isBlocking);
+        }
+    } //UpdateHumanStingInput
+
+
 	
 
-	// Update is called once per frame
-	void Update () {
+    public void UpdateAIStingInput()
+    {
+
+        /*
+         if (Input.GetAxis ("Horizontal") > 0.1) {
+			animator.SetBool ("Walk Forward", true);
+		} else {
+			animator.SetBool ("Walk Forward", false);
+		}
+
+		if (Input.GetAxis ("Horizontal") < -0.1) {
+			if (oponent.attacking){
+				animator.SetBool ("Walk Backward", false); //backward
+				//animator.SetBool ("Block", true);
+			}else{
+				animator.SetBool ("Walk Backward", true); //backward
+				//animator.SetBool ("Block", false);
+			}
+		} else {
+			animator.SetBool ("Walk Backward", false); //backward
+			//animator.SetBool ("Block", false);
+		}
+        */
+
+
+        if (Input.GetKey(KeyCode.RightArrow) == true)
+        {
+            this.transform.position += this.transform.forward * Time.deltaTime * this.moveSpeed;
+            animator.SetBool("Walk Forward", true);
+        }
+        else
+        {
+            animator.SetBool("Walk Forward", false);
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow) == true)
+        {
+            this.transform.position -= this.transform.forward * Time.deltaTime * this.moveSpeed;
+            animator.SetBool("Walk Backward", true);
+        }
+        else
+        {
+            animator.SetBool("Walk Backward", false);
+        }
+
+        //jump
+        if (Input.GetKey(KeyCode.UpArrow) == true && Mathf.Abs(this.GetComponent<Rigidbody>().velocity.y) < 0.01f)
+        {
+            animator.SetBool("Jump", true);
+            this.GetComponent<Rigidbody>().velocity += Vector3.up * this.jumpHeight;
+
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+
+        }
+        else if (isGrounded == true)
+        {
+            animator.SetBool("Jump", false);
+        }
+
+
+        /*
+        if (Input.GetAxis ("Vertical") < -0.1) {
+            animator.SetBool ("DUCK", true);
+        } else {
+            animator.SetBool ("DUCK", false);
+        }
+        */
+        /*
+                    if (Input.GetKeyDown (KeyCode.W)) {
+                    animator.SetTrigger("Jump");
+                } 
+
+                if (Input.GetKeyDown (KeyCode.V) == true) {
+                    animator.Play("Hit Sword");
+                }
+
+                if (Input.GetKeyDown (KeyCode.B)) {
+                    animator.SetTrigger("Hit Gun");
+                }
+        */
+        if (Input.GetKey(KeyCode.P) == true)
+        {
+            animator.SetBool("Hit_Sword_0", true);
+            Debug.Log("hit sword");
+        }
+        else
+        {
+            animator.SetBool("Hit_Sword_0", false);
+        }
+
+
+        if (Input.GetKey(KeyCode.O) == true)
+        {
+            animator.SetBool("Shoot", true);
+            Debug.Log("hit gun");
+            shootBox.transform.GetComponent<BoxCollider>().enabled = true;
+        }
+
+        else
+        {
+            animator.SetBool("Shoot", false);
+            shootBox.transform.GetComponent<BoxCollider>().enabled = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.I) == true)
+        {
+            isBlocking = true;
+            Blocking(isBlocking);
+        }
+        if (Input.GetKeyUp(KeyCode.B) == true)
+        {
+            isBlocking = false;
+            Blocking(isBlocking);
+        }
+
+        //UpdateAiInput
+        {
+            animator.SetBool("defending", defending);
+            //animator.SetBool ("invulnerable", invulnerable);
+            //animator.SetBool ("enable", enable);
+
+            animator.SetBool("oponent_attacking", oponent.attacking);
+            animator.SetFloat("distanceToOponent", getDistanceToOponennt());
+
+            if (Time.time - randomSetTime > 1)
+            {
+                random = Random.value;
+                randomSetTime = Time.time;
+            }
+            animator.SetFloat("random", random);
+        }
+    } //UpdateAIStingInput
+
+
+
+    //BLOCKING
+    public void Blocking(bool b)
+    {
+        sheild.transform.GetComponent<MeshCollider>().enabled = b;
+        sheild.transform.GetComponent<MeshRenderer>().enabled = b;
+
+    }
+
+    
+
+
+
+
+
+
+
+
+    // Update is called once per frame
+    void Update () {
        
 
         animator.SetFloat ("health", healthPercent);
@@ -196,15 +584,29 @@ public class Fighter : MonoBehaviour {
 		}
 
 		if (enable) {
-			if (player == PlayerType.HUMAN) {
-				UpdateHumanInput ();
+			if (player == PlayerType.HUMANPALADIN) {
+				UpdateHumanPaladinInput ();
 			}else{
-				UpdateAiInput();
+				UpdateAiStingInput();
 			}
 
 		}
 
-		if (health <= 0 && currentState != FighterStates.Death) {
+        if (enable)
+        {
+            if (player == PlayerType.HUMANSTING)
+            {
+                UpdateHumanStingInput();
+            }
+            else
+            {
+                UpdateAiPaladinInput();
+            }
+
+        }
+
+
+        if (health <= 0 && currentState != FighterStates.Death) {
             //animator.SetTrigger ("Death");
             GameOver();
         }
