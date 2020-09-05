@@ -130,7 +130,7 @@ public class Fighter : MonoBehaviour {
                     animator.SetTrigger("Hit Gun");
                 }
         */
-		if (Input.GetKey(KeyCode.V) == true)
+		if (Input.GetKey(KeyCode.C) == true)
         {
             animator.SetBool("Hit_Sword_0", true);
             Debug.Log("hit sword");
@@ -141,7 +141,7 @@ public class Fighter : MonoBehaviour {
         }
 
         
-        if (Input.GetKey(KeyCode.B) == true)
+        if (Input.GetKey(KeyCode.V) == true)
         {
             animator.SetBool("Shoot", true);
             Debug.Log("hit gun");
@@ -154,19 +154,18 @@ public class Fighter : MonoBehaviour {
 			shootBox.transform.GetComponent<BoxCollider>().enabled = false;
 		}
 
-		if (Input.GetKeyDown(KeyCode.C) == true)
+		if (Input.GetKeyDown(KeyCode.B) == true)
 		{
 			isBlocking = true;
 			Blocking(isBlocking);
 		}
-		if (Input.GetKeyUp(KeyCode.C) == true)
+		if (Input.GetKeyUp(KeyCode.B) == true)
 		{
 			isBlocking = false;
 			Blocking(isBlocking);
 		}
     } //UpdateHumanPaladinInput
 
-<<<<<<< HEAD
     public void UpdateAIPaladinInput()
     {
 
@@ -187,12 +186,6 @@ public class Fighter : MonoBehaviour {
             animator.SetFloat("random", random);
         }
     } //UpdateAIPaladinInput
-=======
-	public void Blocking(bool b)
-	{
-		sheild.transform.GetComponent<MeshCollider>().enabled = b;
-		sheild.transform.GetComponent<MeshRenderer>().enabled = b;
->>>>>>> parent of fc05395... Merge branch 'master' of https://github.com/Rhysbormolini/RealBigRobotsGoBoom-GAD180
 
 
 
