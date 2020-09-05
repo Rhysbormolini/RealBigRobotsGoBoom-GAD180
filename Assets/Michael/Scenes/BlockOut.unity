@@ -2147,6 +2147,25 @@ Transform:
   m_Father: {fileID: 1749699039}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &668154918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6173655017395911396, guid: a584f5d9f97142842a7aa2dbb1fb0515,
+    type: 3}
+  m_PrefabInstance: {fileID: 1248152611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &668154920
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668154918}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4370832, y: 1, z: 1}
+  m_Center: {x: -0.218542, y: -0.00000008617123, z: -0.000000019285972}
 --- !u!1001 &672759010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2227,26 +2246,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 672759010}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &682208600 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -7753468827249840332, guid: a584f5d9f97142842a7aa2dbb1fb0515,
-    type: 3}
-  m_PrefabInstance: {fileID: 1248152611}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &682208604
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682208600}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: -3563080631035801699, guid: a584f5d9f97142842a7aa2dbb1fb0515, type: 3}
 --- !u!1 &698866781
 GameObject:
   m_ObjectHideFlags: 0
@@ -2992,7 +2991,7 @@ MonoBehaviour:
   player: 3
   currentState: 0
   groundCheck: {fileID: 1471506791}
-  groundDistance: 0.1
+  groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 512
@@ -4052,11 +4051,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sting
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: a584f5d9f97142842a7aa2dbb1fb0515,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a584f5d9f97142842a7aa2dbb1fb0515,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4111,21 +4105,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: a584f5d9f97142842a7aa2dbb1fb0515,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: a584f5d9f97142842a7aa2dbb1fb0515,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: a584f5d9f97142842a7aa2dbb1fb0515,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: a584f5d9f97142842a7aa2dbb1fb0515,
         type: 3}
@@ -4913,7 +4892,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615182846}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000014603136}
-  m_LocalPosition: {x: -2.5837918e-14, y: 1.0909091, z: 1.7954558}
+  m_LocalPosition: {x: -2.842171e-14, y: 1.649, z: 1.5500003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1012009104}
@@ -4933,7 +4912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackName: Shoot
   damage: 5
-  owner: {fileID: 0}
+  owner: {fileID: 1012009105}
 --- !u!65 &1615182849
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4945,8 +4924,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0371748, y: 0.8042303, z: 1.0581328}
-  m_Center: {x: 0.018587444, y: 0.17099434, z: 0.9296533}
+  m_Size: {x: 1, y: 0.39328575, z: 1.9587178}
+  m_Center: {x: 0, y: -0.034478188, z: 0.47935867}
 --- !u!1001 &1619599005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6846,6 +6825,69 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: oponent
+      value: 
+      objectReference: {fileID: 1012009105}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: enable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: play1Sword
+      value: 
+      objectReference: {fileID: 2064985633}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: player
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: jumpHeight
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 602747891}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: groundDistance
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: shootBox
+      value: 
+      objectReference: {fileID: 1625780622}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: fighterName
+      value: Paladin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456362612929126205, guid: efe19ee7b2c4ccc4aa533c07b3730160,
+        type: 3}
+      propertyPath: sheild
+      value: 
+      objectReference: {fileID: 860892029}
+>>>>>>> parent of fc05395... Merge branch 'master' of https://github.com/Rhysbormolini/RealBigRobotsGoBoom-GAD180
     - target: {fileID: 5235978600135410905, guid: efe19ee7b2c4ccc4aa533c07b3730160,
         type: 3}
       propertyPath: m_LocalPosition.x
