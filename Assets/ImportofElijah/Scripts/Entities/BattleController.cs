@@ -11,8 +11,8 @@ public class BattleController : MonoBehaviour
 
     public float timeLeft = 10.0f; // set game time
 
-    public Fighter player1;
-	public Fighter player2;
+    public FighterPaladin player1;
+	public FighterSting player2;
 	public BannerController banner;
 	public AudioSource musicPlayer;
 	public AudioClip backgroundMusic;

@@ -6,21 +6,21 @@ public class FighterSting : MonoBehaviour
 {
     public enum PlayerType
     {
-        HUMANsting, AIsting
+        HUMANSting, AISting
     };
 
     public static float MAX_HEALTH = 100f;
 
     public float health = MAX_HEALTH;
     public string fighterName;
-    public Fighter oponent;
+    public FighterPaladin oponent;
     public bool enable;
 
     public float moveSpeed;
     public float jumpHeight = 1f;
 
     public PlayerType player;
-    public FighterStates currentState = FighterStates.Idle;
+    public StingStates currentState = StingStates.Idle;
 
     protected Animator animator;
     private Rigidbody myBody;
@@ -36,9 +36,14 @@ public class FighterSting : MonoBehaviour
     bool isGrounded;
 
     public Transform shootBox;
+    public Transform stingTail;
 
     public Transform sheild;
     bool isBlocking;
+    public Transform eShootBox;
+    public Transform eMeleeBox;
+
+    public float delayedTime = 0.05f;
     // Use this for initialization
     void Start()
     {
@@ -47,29 +52,8 @@ public class FighterSting : MonoBehaviour
         audioPlayer = GetComponent<AudioSource>();
     }
 
-    public void UpdateHumanInput()
+    public void UpdateHumanStingInput()//change animator stuff for human ****
     {
-
-        /*
-         if (Input.GetAxis ("Horizontal") > 0.1) {
-			animator.SetBool ("Walk Forward", true);
-		} else {
-			animator.SetBool ("Walk Forward", false);
-		}
-
-		if (Input.GetAxis ("Horizontal") < -0.1) {
-			if (oponent.attacking){
-				animator.SetBool ("Walk Backward", false); //backward
-				//animator.SetBool ("Block", true);
-			}else{
-				animator.SetBool ("Walk Backward", true); //backward
-				//animator.SetBool ("Block", false);
-			}
-		} else {
-			animator.SetBool ("Walk Backward", false); //backward
-			//animator.SetBool ("Block", false);
-		}
-        */
 
         if (Input.GetKey(KeyCode.RightArrow) == true)
         {
@@ -98,45 +82,22 @@ public class FighterSting : MonoBehaviour
             this.GetComponent<Rigidbody>().velocity += Vector3.up * this.jumpHeight;
 
             isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-
         }
         else if (isGrounded == true)
         {
             animator.SetBool("Jump", false);
         }
 
-
-        /*
-        if (Input.GetAxis ("Vertical") < -0.1) {
-            animator.SetBool ("DUCK", true);
-        } else {
-            animator.SetBool ("DUCK", false);
-        }
-        */
-        /*
-                    if (Input.GetKeyDown (KeyCode.W)) {
-                    animator.SetTrigger("Jump");
-                } 
-
-                if (Input.GetKeyDown (KeyCode.V) == true) {
-                    animator.Play("Hit Sword");
-                }
-
-                if (Input.GetKeyDown (KeyCode.B)) {
-                    animator.SetTrigger("Hit Gun");
-                }
-        */
+        //combat
         if (Input.GetKey(KeyCode.P) == true)
         {
-            animator.SetBool("Melee", true);
-            Debug.Log("hit melee");
+            animator.SetBool("Hit_Sword_0", true);
+            Debug.Log("hit sword");
         }
         else
         {
-            animator.SetBool("Melee", false);
+            animator.SetBool("Hit_Sword_0", false);
         }
-
 
         if (Input.GetKey(KeyCode.O) == true)
         {
@@ -161,39 +122,58 @@ public class FighterSting : MonoBehaviour
             isBlocking = false;
             Blocking(isBlocking);
         }
-    }
+    } 
 
+    public void UpdateAIStingInput()
+    {
+            animator.SetBool("defending", defending);
+            //animator.SetBool ("invulnerable", invulnerable);
+            //animator.SetBool ("enable", enable);
 
+            animator.SetBool("oponent_attacking", oponent.attacking);
+            animator.SetFloat("distanceToOponent", getDistanceToOponennt());
+
+            if (Time.time - randomSetTime > 1)
+            {
+                random = Random.value;
+                randomSetTime = Time.time;
+            }
+            animator.SetFloat("random", random);
+
+        if (animator("Hit_Sword_0", true))
+        {
+            stingTail.transform.GetComponent<BoxCollider>().enabled = true;
+            Debug.Log("hit sword");
+        }
+        else
+        {
+            stingTail.transform.GetComponent<BoxCollider>().enabled = false;
+        }
+
+        if (animator.SetBool("Shoot", true))
+        {
+            Debug.Log("hit gun");
+            shootBox.transform.GetComponent<BoxCollider>().enabled = true;
+        }
+
+        else
+        {
+            shootBox.transform.GetComponent<BoxCollider>().enabled = false;
+        }
+    } 
+
+    //BLOCKING
     public void Blocking(bool b)
     {
         sheild.transform.GetComponent<MeshCollider>().enabled = b;
         sheild.transform.GetComponent<MeshRenderer>().enabled = b;
-
+        eShootBox.transform.GetComponent<BoxCollider>().enabled = !b;
+        eMeleeBox.transform.GetComponent<BoxCollider>().enabled = !b;
     }
-
-    public void UpdateAiInput()
-    {
-        animator.SetBool("defending", defending);
-        //animator.SetBool ("invulnerable", invulnerable);
-        //animator.SetBool ("enable", enable);
-
-        animator.SetBool("oponent_attacking", oponent.attacking);
-        animator.SetFloat("distanceToOponent", getDistanceToOponennt());
-
-        if (Time.time - randomSetTime > 1)
-        {
-            random = Random.value;
-            randomSetTime = Time.time;
-        }
-        animator.SetFloat("random", random);
-    }
-
 
     // Update is called once per frame
     void Update()
     {
-
-
         animator.SetFloat("health", healthPercent);
 
         if (oponent != null)
@@ -207,29 +187,29 @@ public class FighterSting : MonoBehaviour
 
         if (enable)
         {
-            if (player == PlayerType.HUMANsting)
+            if (player == PlayerType.HUMANSting)
             {
-                UpdateHumanInput();
+                UpdateHumanStingInput();
             }
             else
             {
-                UpdateAiInput();
+                UpdateAIStingInput();
             }
-
         }
 
-        if (health <= 0 && currentState != FighterStates.Death)
+        if (health <= 0 && currentState != StingStates.Death)
         {
-            //animator.SetTrigger ("Death");
-            GameOver();
+            animator.SetTrigger ("Death");
+            Invoke("DelayedAction", delayedTime);
         }
 
-        void GameOver()
-        {
-            SceneManager.LoadScene(0); // reset to menu
-        }
+
     }
 
+    void DelayedAction()
+    {
+        SceneManager.LoadScene(0); // reset to menu
+    }
 
     private float getDistanceToOponennt()
     {
@@ -269,9 +249,9 @@ public class FighterSting : MonoBehaviour
     {
         get
         {
-            return currentState == FighterStates.Take_Hit
-                || currentState == FighterStates.Take_Hit_Defend
-                    || currentState == FighterStates.Death;
+            return currentState == StingStates.Take_Hit
+                || currentState == StingStates.Take_Hit_Defend
+                    || currentState == StingStates.Death;
         }
     }
 
@@ -279,8 +259,8 @@ public class FighterSting : MonoBehaviour
     {
         get
         {
-            return currentState == FighterStates.Defend
-                || currentState == FighterStates.Take_Hit_Defend;
+            return currentState == StingStates.Defend
+                || currentState == StingStates.Take_Hit_Defend;
         }
     }
 
@@ -288,7 +268,7 @@ public class FighterSting : MonoBehaviour
     {
         get
         {
-            return currentState == FighterStates.Attack;
+            return currentState == StingStates.Attack;
         }
     }
 

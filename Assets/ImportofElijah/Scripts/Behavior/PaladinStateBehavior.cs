@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FighterStateBehavior : StateMachineBehaviour {
+public class PaladinStateBehavior : StateMachineBehaviour {
 
-	public FighterStates behaviorState;
+	public PaladinStates behaviorState;
 	public AudioClip soundEffect;
 
 	public float horizontalForce;
 	public float verticalForce;
 
-	protected Fighter fighter;
+	protected FighterPaladin fighter;
 
 	override public void OnStateEnter(Animator animator, 
 	                                  AnimatorStateInfo stateInfo, int layerIndex) {
 		if (fighter == null) {
-			fighter = animator.gameObject.GetComponent<Fighter> ();
+			fighter = animator.gameObject.GetComponent<FighterPaladin> ();
 		}
 
 		fighter.currentState = behaviorState;

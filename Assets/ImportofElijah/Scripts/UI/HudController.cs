@@ -4,8 +4,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class HudController : MonoBehaviour {
-	public Fighter player1;
-	public Fighter player2;
+	public FighterPaladin player1;
+	public FighterSting player2;
 
 	public Text player1Tag;
 	public Text player2Tag;
