@@ -168,6 +168,77 @@ public class Fighter : MonoBehaviour {
 
     public void UpdateAIPaladinInput()
     {
+        //move - needed for animator?
+        if (Input.GetKey(KeyCode.D) == true)
+        {
+            this.transform.position += this.transform.forward * Time.deltaTime * this.moveSpeed;
+            animator.SetBool("Walk Forward", true);
+        }
+        else
+        {
+            animator.SetBool("Walk Forward", false);
+        }
+
+        if (Input.GetKey(KeyCode.A) == true)
+        {
+            this.transform.position -= this.transform.forward * Time.deltaTime * this.moveSpeed;
+            animator.SetBool("Walk Backward", true);
+        }
+        else
+        {
+            animator.SetBool("Walk Backward", false);
+        }
+
+        //jump
+        if (Input.GetKey(KeyCode.W) == true && Mathf.Abs(this.GetComponent<Rigidbody>().velocity.y) < 0.01f)
+        {
+            animator.SetBool("Jump", true);
+            this.GetComponent<Rigidbody>().velocity += Vector3.up * this.jumpHeight;
+
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+
+        }
+        else if (isGrounded == true)
+        {
+            animator.SetBool("Jump", false);
+        }
+
+        //attack - needed for animator?
+        if (Input.GetKey(KeyCode.C) == true)
+        {
+            animator.SetBool("Hit_Sword_0", true);
+            Debug.Log("hit sword");
+        }
+        else
+        {
+            animator.SetBool("Hit_Sword_0", false);
+        }
+
+
+        if (Input.GetKey(KeyCode.V) == true)
+        {
+            animator.SetBool("Shoot", true);
+            Debug.Log("hit gun");
+            shootBox.transform.GetComponent<BoxCollider>().enabled = true;
+        }
+
+        else
+        {
+            animator.SetBool("Shoot", false);
+            shootBox.transform.GetComponent<BoxCollider>().enabled = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.B) == true)
+        {
+            isBlocking = true;
+            Blocking(isBlocking);
+        }
+        if (Input.GetKeyUp(KeyCode.B) == true)
+        {
+            isBlocking = false;
+            Blocking(isBlocking);
+        }
 
         //UpdateAIInput
         {
@@ -311,6 +382,78 @@ public class Fighter : MonoBehaviour {
 
     public void UpdateAIStingInput()
     {
+        //move - needed for animator?
+        if (Input.GetKey(KeyCode.RightArrow) == true)
+        {
+            this.transform.position += this.transform.forward * Time.deltaTime * this.moveSpeed;
+            animator.SetBool("Walk Forward", true);
+        }
+        else
+        {
+            animator.SetBool("Walk Forward", false);
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow) == true)
+        {
+            this.transform.position -= this.transform.forward * Time.deltaTime * this.moveSpeed;
+            animator.SetBool("Walk Backward", true);
+        }
+        else
+        {
+            animator.SetBool("Walk Backward", false);
+        }
+
+        //jump
+        if (Input.GetKey(KeyCode.UpArrow) == true && Mathf.Abs(this.GetComponent<Rigidbody>().velocity.y) < 0.01f)
+        {
+            animator.SetBool("Jump", true);
+            this.GetComponent<Rigidbody>().velocity += Vector3.up * this.jumpHeight;
+
+            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+
+        }
+        else if (isGrounded == true)
+        {
+            animator.SetBool("Jump", false);
+        }
+
+
+        //attack - needed for animator?
+        if (Input.GetKey(KeyCode.P) == true)
+        {
+            animator.SetBool("Hit_Sword_0", true);
+            Debug.Log("hit sword");
+        }
+        else
+        {
+            animator.SetBool("Hit_Sword_0", false);
+        }
+
+
+        if (Input.GetKey(KeyCode.O) == true)
+        {
+            animator.SetBool("Shoot", true);
+            Debug.Log("hit gun");
+            shootBox.transform.GetComponent<BoxCollider>().enabled = true;
+        }
+
+        else
+        {
+            animator.SetBool("Shoot", false);
+            shootBox.transform.GetComponent<BoxCollider>().enabled = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.I) == true)
+        {
+            isBlocking = true;
+            Blocking(isBlocking);
+        }
+        if (Input.GetKeyUp(KeyCode.I) == true)
+        {
+            isBlocking = false;
+            Blocking(isBlocking);
+        }
 
         //UpdateAiInput
         {

@@ -248,9 +248,9 @@ AnimatorState:
   m_Motion: {fileID: 1827226128182048838, guid: aa77f4fcee49f864786c976df7997a82,
     type: 3}
   m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
+  m_SpeedParameter: health
+  m_MirrorParameter: Walk Forward
+  m_CycleOffsetParameter: health
   m_TimeParameter: 
 --- !u!114 &-1937797312258946026
 MonoBehaviour:
