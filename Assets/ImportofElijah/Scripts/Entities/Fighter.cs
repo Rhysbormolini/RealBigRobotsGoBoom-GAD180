@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class Fighter : MonoBehaviour {
 	public enum PlayerType
 	{
-		HUMANPALADIN, AIPALADIN, HUMANSTING, AISTING	
+		HumanPaladin, AIPaladin, HumanSting, AISting
 	};
 
    
@@ -39,6 +39,8 @@ public class Fighter : MonoBehaviour {
 
 	public Transform sheild;
 	bool isBlocking;
+    public Transform eShootBox;
+    public Transform eMeleeBox;
 
 	// Use this for initialization
 	void Start () {
@@ -167,119 +169,6 @@ public class Fighter : MonoBehaviour {
     public void UpdateAIPaladinInput()
     {
 
-        /*
-         if (Input.GetAxis ("Horizontal") > 0.1) {
-			animator.SetBool ("Walk Forward", true);
-		} else {
-			animator.SetBool ("Walk Forward", false);
-		}
-
-		if (Input.GetAxis ("Horizontal") < -0.1) {
-			if (oponent.attacking){
-				animator.SetBool ("Walk Backward", false); //backward
-				//animator.SetBool ("Block", true);
-			}else{
-				animator.SetBool ("Walk Backward", true); //backward
-				//animator.SetBool ("Block", false);
-			}
-		} else {
-			animator.SetBool ("Walk Backward", false); //backward
-			//animator.SetBool ("Block", false);
-		}
-        */
-
-
-        if (Input.GetKey(KeyCode.D) == true)
-        {
-            this.transform.position += this.transform.forward * Time.deltaTime * this.moveSpeed;
-            animator.SetBool("Walk Forward", true);
-        }
-        else
-        {
-            animator.SetBool("Walk Forward", false);
-        }
-
-        if (Input.GetKey(KeyCode.A) == true)
-        {
-            this.transform.position -= this.transform.forward * Time.deltaTime * this.moveSpeed;
-            animator.SetBool("Walk Backward", true);
-        }
-        else
-        {
-            animator.SetBool("Walk Backward", false);
-        }
-
-        //jump
-        if (Input.GetKey(KeyCode.W) == true && Mathf.Abs(this.GetComponent<Rigidbody>().velocity.y) < 0.01f)
-        {
-            animator.SetBool("Jump", true);
-            this.GetComponent<Rigidbody>().velocity += Vector3.up * this.jumpHeight;
-
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-
-        }
-        else if (isGrounded == true)
-        {
-            animator.SetBool("Jump", false);
-        }
-
-
-        /*
-        if (Input.GetAxis ("Vertical") < -0.1) {
-            animator.SetBool ("DUCK", true);
-        } else {
-            animator.SetBool ("DUCK", false);
-        }
-        */
-        /*
-                    if (Input.GetKeyDown (KeyCode.W)) {
-                    animator.SetTrigger("Jump");
-                } 
-
-                if (Input.GetKeyDown (KeyCode.V) == true) {
-                    animator.Play("Hit Sword");
-                }
-
-                if (Input.GetKeyDown (KeyCode.B)) {
-                    animator.SetTrigger("Hit Gun");
-                }
-        */
-        if (Input.GetKey(KeyCode.C) == true)
-        {
-            animator.SetBool("Hit_Sword_0", true);
-            Debug.Log("hit sword");
-        }
-        else
-        {
-            animator.SetBool("Hit_Sword_0", false);
-        }
-
-
-        if (Input.GetKey(KeyCode.V) == true)
-        {
-            animator.SetBool("Shoot", true);
-            Debug.Log("hit gun");
-            shootBox.transform.GetComponent<BoxCollider>().enabled = true;
-        }
-
-        else
-        {
-            animator.SetBool("Shoot", false);
-            shootBox.transform.GetComponent<BoxCollider>().enabled = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.B) == true)
-        {
-            isBlocking = true;
-            Blocking(isBlocking);
-        }
-        if (Input.GetKeyUp(KeyCode.B) == true)
-        {
-            isBlocking = false;
-            Blocking(isBlocking);
-        }
-
         //UpdateAIInput
         {
             animator.SetBool("defending", defending);
@@ -297,6 +186,8 @@ public class Fighter : MonoBehaviour {
             animator.SetFloat("random", random);
         }
     } //UpdateAIPaladinInput
+
+
 
     public void UpdateHumanStingInput()
     {
@@ -408,7 +299,7 @@ public class Fighter : MonoBehaviour {
             isBlocking = true;
             Blocking(isBlocking);
         }
-        if (Input.GetKeyUp(KeyCode.B) == true)
+        if (Input.GetKeyUp(KeyCode.I) == true)
         {
             isBlocking = false;
             Blocking(isBlocking);
@@ -420,119 +311,6 @@ public class Fighter : MonoBehaviour {
 
     public void UpdateAIStingInput()
     {
-
-        /*
-         if (Input.GetAxis ("Horizontal") > 0.1) {
-			animator.SetBool ("Walk Forward", true);
-		} else {
-			animator.SetBool ("Walk Forward", false);
-		}
-
-		if (Input.GetAxis ("Horizontal") < -0.1) {
-			if (oponent.attacking){
-				animator.SetBool ("Walk Backward", false); //backward
-				//animator.SetBool ("Block", true);
-			}else{
-				animator.SetBool ("Walk Backward", true); //backward
-				//animator.SetBool ("Block", false);
-			}
-		} else {
-			animator.SetBool ("Walk Backward", false); //backward
-			//animator.SetBool ("Block", false);
-		}
-        */
-
-
-        if (Input.GetKey(KeyCode.RightArrow) == true)
-        {
-            this.transform.position += this.transform.forward * Time.deltaTime * this.moveSpeed;
-            animator.SetBool("Walk Forward", true);
-        }
-        else
-        {
-            animator.SetBool("Walk Forward", false);
-        }
-
-        if (Input.GetKey(KeyCode.LeftArrow) == true)
-        {
-            this.transform.position -= this.transform.forward * Time.deltaTime * this.moveSpeed;
-            animator.SetBool("Walk Backward", true);
-        }
-        else
-        {
-            animator.SetBool("Walk Backward", false);
-        }
-
-        //jump
-        if (Input.GetKey(KeyCode.UpArrow) == true && Mathf.Abs(this.GetComponent<Rigidbody>().velocity.y) < 0.01f)
-        {
-            animator.SetBool("Jump", true);
-            this.GetComponent<Rigidbody>().velocity += Vector3.up * this.jumpHeight;
-
-            isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-
-
-        }
-        else if (isGrounded == true)
-        {
-            animator.SetBool("Jump", false);
-        }
-
-
-        /*
-        if (Input.GetAxis ("Vertical") < -0.1) {
-            animator.SetBool ("DUCK", true);
-        } else {
-            animator.SetBool ("DUCK", false);
-        }
-        */
-        /*
-                    if (Input.GetKeyDown (KeyCode.W)) {
-                    animator.SetTrigger("Jump");
-                } 
-
-                if (Input.GetKeyDown (KeyCode.V) == true) {
-                    animator.Play("Hit Sword");
-                }
-
-                if (Input.GetKeyDown (KeyCode.B)) {
-                    animator.SetTrigger("Hit Gun");
-                }
-        */
-        if (Input.GetKey(KeyCode.P) == true)
-        {
-            animator.SetBool("Hit_Sword_0", true);
-            Debug.Log("hit sword");
-        }
-        else
-        {
-            animator.SetBool("Hit_Sword_0", false);
-        }
-
-
-        if (Input.GetKey(KeyCode.O) == true)
-        {
-            animator.SetBool("Shoot", true);
-            Debug.Log("hit gun");
-            shootBox.transform.GetComponent<BoxCollider>().enabled = true;
-        }
-
-        else
-        {
-            animator.SetBool("Shoot", false);
-            shootBox.transform.GetComponent<BoxCollider>().enabled = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.I) == true)
-        {
-            isBlocking = true;
-            Blocking(isBlocking);
-        }
-        if (Input.GetKeyUp(KeyCode.B) == true)
-        {
-            isBlocking = false;
-            Blocking(isBlocking);
-        }
 
         //UpdateAiInput
         {
@@ -559,7 +337,8 @@ public class Fighter : MonoBehaviour {
     {
         sheild.transform.GetComponent<MeshCollider>().enabled = b;
         sheild.transform.GetComponent<MeshRenderer>().enabled = b;
-
+        eShootBox.transform.GetComponent<BoxCollider>().enabled = !b;
+        eMeleeBox.transform.GetComponent<BoxCollider>().enabled = !b;
     }
 
     
@@ -584,23 +363,49 @@ public class Fighter : MonoBehaviour {
 		}
 
 		if (enable) {
-			if (player == PlayerType.HUMANPALADIN) {
+			if (player == PlayerType.HumanPaladin) {
 				UpdateHumanPaladinInput ();
 			}else{
-				UpdateAiStingInput();
-			}
+                UpdateAIPaladinInput();
+            }
 
 		}
 
         if (enable)
         {
-            if (player == PlayerType.HUMANSTING)
+            if (player == PlayerType.HumanSting)
             {
                 UpdateHumanStingInput();
             }
             else
             {
-                UpdateAiPaladinInput();
+                UpdateAIStingInput();
+            }
+
+        }
+
+        if (enable)
+        {
+            if (player == PlayerType.AIPaladin)
+            {
+                UpdateAIPaladinInput();
+            }
+            else
+            {
+                UpdateHumanPaladinInput();
+            }
+
+        }
+
+        if (enable)
+        {
+            if (player == PlayerType.AISting)
+            {
+                UpdateAIStingInput();
+            }
+            else
+            {
+                UpdateHumanStingInput();
             }
 
         }
