@@ -36,6 +36,7 @@ public class FighterPaladin : MonoBehaviour
     bool isGrounded;
 
     public Transform shootBox;
+    public Transform swordHandBox;
 
     public Transform sheild;
     bool isBlocking;
@@ -93,10 +94,12 @@ public class FighterPaladin : MonoBehaviour
         {
             animator.SetBool("Hit_Sword_0", true);
             Debug.Log("hit sword");
+            swordHandBox.transform.GetComponent<BoxCollider>().enabled = true;
         }
         else
         {
             animator.SetBool("Hit_Sword_0", false);
+            swordHandBox.transform.GetComponent<BoxCollider>().enabled = false;
         }
         
         if (Input.GetKey(KeyCode.V) == true)
@@ -139,6 +142,27 @@ public class FighterPaladin : MonoBehaviour
                 randomSetTime = Time.time;
             }
             animator.SetFloat("random", random);
+
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Test Sword Hit"))
+        {
+            swordHandBox.transform.GetComponent<BoxCollider>().enabled = true;
+            Debug.Log("hit sword");
+        }
+        else
+        {
+            swordHandBox.transform.GetComponent<BoxCollider>().enabled = false;
+        }
+
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Hit Gun"))
+        {
+            Debug.Log("hit gun");
+            shootBox.transform.GetComponent<BoxCollider>().enabled = true;
+        }
+
+        else
+        {
+            shootBox.transform.GetComponent<BoxCollider>().enabled = false;
+        }
     }
 
     //BLOCKING

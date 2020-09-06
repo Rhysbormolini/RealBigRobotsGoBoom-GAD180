@@ -18,10 +18,10 @@ EditorBuildSettings:
     path: Assets/Michael/Scenes/PvP.unity
     guid: 72e6512899e762640a8b26d56388a641
   - enabled: 1
-    path: Assets/Michael/Scenes/PvAI.unity
+    path: Assets/Michael/Scenes/P(P)vAI(S).unity
     guid: e8071a1359d769e419632c6cda939e04
   - enabled: 1
-    path: Assets/Michael/Scenes/AIvP.unity
+    path: Assets/Michael/Scenes/AI(P)vP(S).unity
     guid: 2a88215141ae47440bd2fd7a4a38d4d3
   - enabled: 0
     path: Assets/Michael/Scenes/BlockOut.unity

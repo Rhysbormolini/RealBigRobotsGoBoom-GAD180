@@ -36,7 +36,7 @@ public class FighterSting : MonoBehaviour
     bool isGrounded;
 
     public Transform shootBox;
-    public Transform stingTail;
+    public Transform stingTailBox;
 
     public Transform sheild;
     bool isBlocking;
@@ -93,10 +93,12 @@ public class FighterSting : MonoBehaviour
         {
             animator.SetBool("Hit_Sword_0", true);
             Debug.Log("hit sword");
+            stingTailBox.transform.GetComponent<BoxCollider>().enabled = true;
         }
         else
         {
             animator.SetBool("Hit_Sword_0", false);
+            stingTailBox.transform.GetComponent<BoxCollider>().enabled = false;
         }
 
         if (Input.GetKey(KeyCode.O) == true)
@@ -140,17 +142,17 @@ public class FighterSting : MonoBehaviour
             }
             animator.SetFloat("random", random);
 
-        if (animator("Hit_Sword_0", true))
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Melee"))
         {
-            stingTail.transform.GetComponent<BoxCollider>().enabled = true;
+            stingTailBox.transform.GetComponent<BoxCollider>().enabled = true;
             Debug.Log("hit sword");
         }
         else
         {
-            stingTail.transform.GetComponent<BoxCollider>().enabled = false;
+            stingTailBox.transform.GetComponent<BoxCollider>().enabled = false;
         }
 
-        if (animator.SetBool("Shoot", true))
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Shoot"))
         {
             Debug.Log("hit gun");
             shootBox.transform.GetComponent<BoxCollider>().enabled = true;
