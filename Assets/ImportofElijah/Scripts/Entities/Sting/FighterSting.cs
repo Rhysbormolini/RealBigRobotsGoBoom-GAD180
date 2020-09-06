@@ -55,7 +55,7 @@ public class FighterSting : MonoBehaviour
     public void UpdateHumanStingInput()//change animator stuff for human ****
     {
 
-        if (Input.GetKey(KeyCode.RightArrow) == true)
+        if (Input.GetKey(KeyCode.LeftArrow) == true)
         {
             this.transform.position += this.transform.forward * Time.deltaTime * this.moveSpeed;
             animator.SetBool("Walk Forward", true);
@@ -65,7 +65,7 @@ public class FighterSting : MonoBehaviour
             animator.SetBool("Walk Forward", false);
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow) == true)
+        if (Input.GetKey(KeyCode.RightArrow) == true)
         {
             this.transform.position -= this.transform.forward * Time.deltaTime * this.moveSpeed;
             animator.SetBool("Walk Backward", true);
@@ -91,13 +91,13 @@ public class FighterSting : MonoBehaviour
         //combat
         if (Input.GetKey(KeyCode.P) == true)
         {
-            animator.SetBool("Hit_Sword_0", true);
-            Debug.Log("hit sword");
+            animator.SetBool("Melee", true);
+            Debug.Log("melee");
             stingTailBox.transform.GetComponent<BoxCollider>().enabled = true;
         }
         else
         {
-            animator.SetBool("Hit_Sword_0", false);
+            animator.SetBool("Melee", false);
             stingTailBox.transform.GetComponent<BoxCollider>().enabled = false;
         }
 
@@ -204,6 +204,8 @@ public class FighterSting : MonoBehaviour
             animator.SetTrigger ("Death");
             Invoke("DelayedAction", delayedTime);
         }
+
+        
 
 
     }

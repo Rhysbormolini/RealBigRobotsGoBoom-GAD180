@@ -45,39 +45,24 @@ public class BattleController : MonoBehaviour
 		}*/
 
         //if (battleStarted && !battleEnded) 
-        {
+       
 			if (roundTime > 0 && Time.time - lastTimeUpdate > 1)
             {
 				roundTime--;
 				lastTimeUpdate = Time.time;
-                /*
+                
 				if (roundTime == 0){
-					expireTime();
+					GameOver();
 				}
 			}
+		
+    }
 
-			if (player1.healthPercent <= 0) {
-				banner.showYouLose ();
-				battleEnded = true;
-
-			} else if (player2.healthPercent <= 0) {
-				banner.showYouWin ();
-				battleEnded = true;
-                */
-			}
-		}
-
-       /* timer //
-        {
-            timeLeft -= Time.deltaTime;
-            if (timeLeft <= 0)
-                GameOver();
-        }
+    
 
        
         void GameOver()
         {
             SceneManager.LoadScene(0); // reset to menu
-        }*/
-    }
+        }
 }
