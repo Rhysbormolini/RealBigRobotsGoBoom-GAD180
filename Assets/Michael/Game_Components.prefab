@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackName: Shoot
-  damage: 10
+  damage: 3
   owner: {fileID: 2506251860317654370}
 --- !u!1 &2506251859574250154
 GameObject:
@@ -317,8 +317,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1.0371748, y: 0.8042303, z: 1.0581328}
-  m_Center: {x: 0.018587444, y: 0.17099434, z: 0.9296533}
+  m_Size: {x: 1.0371748, y: 0.8042303, z: 2.9634638}
+  m_Center: {x: 0.018587137, y: 0.17099434, z: -0.023015985}
 --- !u!114 &2506251859574250836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackName: Shoot
-  damage: 10
+  damage: 4
   owner: {fileID: 2506251860176955867}
 --- !u!1 &2506251859722045490
 GameObject:
@@ -661,8 +661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42bece7cc4cee345868e1a97868ec13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundTime: 90
-  timeLeft: 90
+  roundTime: 80
+  timeLeft: 80
   player1: {fileID: 2506251860317654370}
   player2: {fileID: 2506251860176955867}
   banner: {fileID: 2506251859815372789}
@@ -2539,7 +2539,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackName: Melee
-  damage: 15
+  damage: 3
   owner: {fileID: 2506251860176955867}
 --- !u!65 &2506251860744299125
 BoxCollider:
@@ -2567,7 +2567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackName: Sword
-  damage: 15
+  damage: 4
   owner: {fileID: 2506251860317654370}
 --- !u!54 &2506251860317654380
 Rigidbody:
@@ -2599,37 +2599,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &2506251860317654370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5901426212873730509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d8ee21f2d8d6844e8009e518a712ebe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  fighterName: Paladin
-  oponent: {fileID: 2506251860176955867}
-  enable: 1
-  moveSpeed: 2
-  jumpHeight: 4
-  player: 0
-  currentState: 0
-  groundCheck: {fileID: 2506251860591858343}
-  groundDistance: 0.1
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 512
-  shootBox: {fileID: 2506251859568038106}
-  swordHandBox: {fileID: 36637052579993018}
-  sheild: {fileID: 2506251860327811625}
-  eShootBox: {fileID: 2506251859574250155}
-  eMeleeBox: {fileID: 8846813715526740578}
-  delayedTime: 3
 --- !u!82 &5865979703209978778
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2726,6 +2695,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2506251860317654370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901426212873730509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8ee21f2d8d6844e8009e518a712ebe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  fighterName: Paladin
+  oponent: {fileID: 2506251860176955867}
+  enable: 1
+  moveSpeed: 2
+  jumpHeight: 4
+  player: 0
+  currentState: 0
+  groundCheck: {fileID: 2506251860591858343}
+  groundDistance: 0.1
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 512
+  shootBox: {fileID: 2506251859568038106}
+  swordHandBox: {fileID: 36637052579993018}
+  sheild: {fileID: 2506251860327811625}
+  eShootBox: {fileID: 2506251859574250155}
+  eMeleeBox: {fileID: 8846813715526740578}
+  delayedTime: 3
 --- !u!54 &2506251860176955840
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3023,6 +3023,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paladin_Mesh_Idle
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 3460a11624eb5184bb2a3b948244f0b6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d110b1ed8d443714386248735c6fcc8b, type: 2}
+    - target: {fileID: -6057140222963153312, guid: 3460a11624eb5184bb2a3b948244f0b6,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 3460a11624eb5184bb2a3b948244f0b6,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 3460a11624eb5184bb2a3b948244f0b6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3077,21 +3092,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 3460a11624eb5184bb2a3b948244f0b6,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: d110b1ed8d443714386248735c6fcc8b, type: 2}
-    - target: {fileID: -6057140222963153312, guid: 3460a11624eb5184bb2a3b948244f0b6,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 3460a11624eb5184bb2a3b948244f0b6,
-        type: 3}
-      propertyPath: m_CullingMode
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3460a11624eb5184bb2a3b948244f0b6, type: 3}

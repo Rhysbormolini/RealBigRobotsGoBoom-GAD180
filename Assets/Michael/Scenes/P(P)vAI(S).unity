@@ -371,6 +371,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5884692891903749078, guid: cec5877a0e33d954ea13e7a3e7ea6455,
+        type: 3}
+      propertyPath: TriggerModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5884692891903749078, guid: cec5877a0e33d954ea13e7a3e7ea6455,
+        type: 3}
+      propertyPath: TriggerModule.collisionShape0
+      value: 
+      objectReference: {fileID: 2140099260}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cec5877a0e33d954ea13e7a3e7ea6455, type: 3}
 --- !u!1 &654588728 stripped
@@ -399,7 +409,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-233306
+  m_Name: pb_Mesh-544048
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -631,7 +641,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-233304
+  m_Name: pb_Mesh-544046
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -788,3 +798,9 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!4 &2140099260 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2506251859568038106, guid: cec5877a0e33d954ea13e7a3e7ea6455,
+    type: 3}
+  m_PrefabInstance: {fileID: 653009835}
+  m_PrefabAsset: {fileID: 0}

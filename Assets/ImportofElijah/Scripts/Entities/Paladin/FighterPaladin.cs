@@ -92,28 +92,30 @@ public class FighterPaladin : MonoBehaviour
         //combat
 		if (Input.GetKey(KeyCode.C) == true)
         {
-            animator.SetBool("Hit_Sword_0", true);
+            animator.SetBool("Hit_Sword", true);
             Debug.Log("hit sword");
             swordHandBox.transform.GetComponent<BoxCollider>().enabled = true;
         }
         else
         {
-            animator.SetBool("Hit_Sword_0", false);
+            animator.SetBool("Hit_Sword", false);
             swordHandBox.transform.GetComponent<BoxCollider>().enabled = false;
         }
         
+
         if (Input.GetKey(KeyCode.V) == true)
         {
             animator.SetBool("Shoot", true);
             Debug.Log("hit gun");
 			shootBox.transform.GetComponent<BoxCollider>().enabled = true;
 		}
-	
+
         else
         {
             animator.SetBool("Shoot", false);
 			shootBox.transform.GetComponent<BoxCollider>().enabled = false;
 		}
+
 
 		if (Input.GetKeyDown(KeyCode.B) == true)
 		{
@@ -143,7 +145,7 @@ public class FighterPaladin : MonoBehaviour
             }
             animator.SetFloat("random", random);
 
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Test Sword Hit"))
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("Hit Sword"))
         {
             swordHandBox.transform.GetComponent<BoxCollider>().enabled = true;
             Debug.Log("hit sword");
